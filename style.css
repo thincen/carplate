@@ -1,0 +1,381 @@
+:root {
+  font-size: 16px;
+  --color-danger: #f56c6c;
+  --color-bg-danger: #fef0f0;
+  --color-border-danger: #fab6b6;
+  --color-main: #6c5ce7;
+  --color-main-dark: #182C61;
+  --color-bg-main: rgba(162, 155, 254, 0.2);
+  --color-tip-light: #dfe6e9;
+  --color-tip-dark: rgba(52, 31, 151, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: var(--color-main-dark);
+}
+
+/*a {
+  text-decoration: none;
+}*/
+
+ul {
+  list-style: none;
+}
+
+input {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-main);
+  padding: 0.0rem 0.5rem;
+}
+
+/* 去除 label 点击闪烁 */
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* defalut end */
+
+#app {
+  width: 50%;
+  margin: 0 auto;
+}
+
+header {
+  margin: 1rem 0 0.5rem 0;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0rem;
+}
+
+header>h1 {
+  font-size: 1.5rem;
+}
+
+#version,
+#version a {
+  font-size: 0.8rem;
+  color: var(--color-tip-dark);
+  text-align: center;
+}
+#version{
+  margin-bottom:0.5rem;
+}
+
+fieldset {
+  padding: 0.5rem 0 1rem 0;
+  border: 0;
+  border-top: 1px solid var(--color-tip-dark);
+}
+
+fieldset .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  /* gap: 0.8rem; */
+  margin: 0 auto 0.5rem auto;
+}
+
+fieldset .row span {
+  display: inline-block;
+  width: 3rem;
+}
+
+fieldset .row input {
+  flex-grow: 1;
+}
+
+fieldset .row select {
+  padding: 0.2rem 1rem;
+}
+
+.checkbox {
+  width: 4rem;
+  height: 1.8rem;
+  border: 1px solid var(--color-main-dark);
+  display: inline-block;
+  border-radius: 3.6rem;
+  background-color: var(--color-main);
+  position: relative;
+  transition: all .8s ease;
+}
+
+
+#checkboxlabel{
+line-height:1.8rem;
+}
+
+#cacheCheckbox+div {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid rgb(158, 156, 156);
+  width: 1.8rem;
+  height: 100%;
+  border-radius: 50%;
+  transition: all .5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0rem;
+  z-index: 99;
+  display: block;
+}
+
+#cacheCheckbox:checked+div {
+  left: 2.15rem;
+
+  border: 1px solid var(--color-main);
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+/* .checkbox:before {
+  content: "on";
+  color: white;
+  position: absolute;
+}
+
+.checkbox:after {
+  content: "off";
+  color: white;
+  position: absolute;
+  left: 2.3rem;
+} */
+
+
+select:focus,
+input:focus {
+  outline: none;
+}
+
+select {
+  border-radius: 0.5rem;
+  color: var(--color-main-dark);
+  background-color: var(--color-bg-main);
+}
+
+/* fieldset end */
+
+/* section #showCanvas */
+/* checkbox button */
+section {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.btn-primiary {
+  width: 80%;
+  background-color: var(--color-main);
+  padding: 0.3rem 2rem;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid var(--color-main-dark);
+  border-radius: 0.8rem;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn-primiary:hover {
+  background-color: var(--color-bg-main);
+  color: var(--color-main-dark);
+  border-color: var(--color-main);
+}
+
+
+.btn-danger {
+  background-color: var(--color-bg-danger);
+  border: 1px solid var(--color-border-danger);
+  color: var(--color-danger);
+  min-width: 3rem;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.tips,
+.tips * {
+  color: var(--color-tip-dark);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.help ,.changelog{
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.help p {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.help ul {
+  margin-top: 1rem;
+}
+
+.help ul li,
+.changelog ul li{
+  list-style-type: disc;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+#field-cache {
+  padding: 0;
+}
+
+#cacheCount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+#cacheCount button {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.list{
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-tip-dark);
+  padding: 0.5rem 5%;
+}
+
+.list li:nth-child(odd) {
+  background-color: var(--color-bg-main);
+}
+
+.list li button {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  margin-left:1rem;
+}
+.col2{
+flex-grow:1;
+}
+
+.row2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cacheComment {
+  text-align: left;
+}
+
+canvas {
+  width: 140px;
+  height: 440px;
+  display: none;
+  margin: 0 auto;
+}
+
+.resImg {
+  box-sizing: content-box;
+  margin: auto;
+  display: block;
+  box-shadow: 0 0 1px 1px white;
+}
+
+#field-log{
+  visibility: hidden;
+}
+.close{
+  position: absolute;
+  right: 10%;
+  /* width: 2rem;
+  height: 2rem; */
+  border: 1px solid var(--color-tip-dark);
+  background-color: var(--color-bg-main);
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  padding: 0.2rem 1rem;;
+  color: var(--color-main);
+  animation: flash 2s infinite;
+  -webkit-animation: flash 3s 3;
+}
+@keyframes flash{
+	0%{color: var(--color-main);
+  background-color: var(--color-bg-main);
+	
+}
+	60%{
+  background-color: var(--color-main);
+color: var(--color-tip-light);}
+	100%{color: var(--color-main);
+  background-color: var(--color-bg-main);
+}
+}
+
+@-webkit-keyframes flash{
+	0%{color: var(--color-main);
+  background-color: var(--color-bg-main);
+	
+}
+	60%{
+  background-color: var(--color-main);
+color: var(--color-tip-light);}
+	100%{color: var(--color-main);
+  background-color: var(--color-bg-main);
+	
+}
+}
+
+.changelog,.changelog *{
+  color:var(--color-tip-dark);
+  font-size: 0.8rem;
+}
+
+.changelog h1{
+  font-size: 1.2rem;
+  padding: 0 0 0.5rem 0;
+}
+.changelog h2{
+  font-size: 1.0rem;
+  padding: 0.3rem 0;
+}
+.changelog h3{
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.1rem 0;
+}
+.changelog li{
+}
+
+
+@media screen and (max-width:800px) {
+  #app {
+    width: 100%;
+  }
+}
+@media screen and (max-width:375px){
+	:root {
+		font-size:14px;
+	}
+}
