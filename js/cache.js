@@ -99,7 +99,9 @@ if( !confirm("❗️确定删除 "+this.data[id].value +" ?")  ){return}
                 if (node.className=="list tips"){
                     draw(this.data[index].value,this.data[index].category)
                     let canvas=document.querySelector("#canvas")
-                    canvas.style.rotate="-90deg"
+					canvas.style.maxWidth=window.innerWidth+"px"
+					canvas.style.maxHeight=window.innerWidth/440*140+"px"
+					
                     window.scrollTo(0,document.documentElement.clientHeight)
                     return
                 }

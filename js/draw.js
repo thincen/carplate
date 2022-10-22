@@ -1,8 +1,8 @@
 // draw.js
 
-const d = window.devicePixelRatio>2||3, // 缩放比例
-d2=2*d,
-  r = 10; // 内框线圆角 10mm
+let d = window.devicePixelRatio>2||3; // 缩放比例
+d*=2
+let r = 10; // 内框线圆角 10mm
 
 // 最外层边框 普通蓝牌为 w=440 h=140 r=10+1.5 border-width=1.5
 
@@ -20,12 +20,10 @@ export function draw(carplate, opt) {
   if (opt.toLowerCase() === "green") {
     w = 480
   }
-  canvas.width = h * d2; // 放大像素
-  canvas.height = w * d2
+  canvas.width = w * d; // 放大像素
+  canvas.height = h * d
   const ctx = canvas.getContext("2d")
-  ctx.translate(h * d2, 0); // 移动原点到等高的位置,旋转后刚好铺满
-  ctx.rotate(Math.PI / 180 * 90) // 顺时针旋转90度
-  ctx.scale(d2, d2)
+  ctx.scale(d, d)
 
   border(ctx, w, h, r, backgroundColor)
   hole(ctx, h)
@@ -53,9 +51,7 @@ let index=p.indexOf(s[0])
   img.onload = function () {
     // png内文字宽90,高180
     ctx.drawImage(img, 90 * col, 180 * row, 90, 180, 15, 25, 45, 90);
-    //  drawLetter(ctx,s)
     letters(ctx, s)
-    //  canvas.style.display = "none"
   }
   img.src = "img/word.png"
 }

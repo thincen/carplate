@@ -290,17 +290,22 @@ flex-grow:1;
 }
 
 canvas {
-  width: 140px;
-  height: 440px;
   display: none;
-  margin: 0 auto;
+  margin: 1rem auto;
+  width: 440px;
+  height: 140px;
 }
 
 .resImg {
   box-sizing: content-box;
-  margin: auto;
-  display: block;
+ /* margin: auto;
+ */ display: block;
+  position: absolute;
+  top:100%;
+  left:50%;
   box-shadow: 0 0 1px 1px white;
+  transform-origin: top left;
+  transform: rotate(-90deg) translateY(-50%);
 }
 
 #field-log{
@@ -309,8 +314,6 @@ canvas {
 .close{
   position: absolute;
   right: 10%;
-  /* width: 2rem;
-  height: 2rem; */
   border: 1px solid var(--color-tip-dark);
   background-color: var(--color-bg-main);
   border-radius: 1rem;

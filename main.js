@@ -21,7 +21,6 @@ const updateWS = registerSW(
 let canvas = document.getElementById("canvas")
 let cache = new Cache()
 
-
 window.onload = () => {
 	cache.renderCache()
 	renderVersion()
@@ -84,7 +83,9 @@ document.querySelector(".submit").addEventListener("click", (e) => {
 		}
 	}
 	draw(s, t)
-	canvas.style.rotate = "-90deg"
+	canvas.style.margintop= "1rem"
+	canvas.style.maxWidth=window.innerWidth+"px"
+	canvas.style.maxHeight=window.innerWidth/440*140+"px"
 	window.scrollTo(0, document.documentElement.clientHeight)
 })
 
@@ -92,13 +93,10 @@ canvas.addEventListener("click", function () {
 	var dataImg = new Image()
 	dataImg.src = canvas.toDataURL('image/png')
 	dataImg.classList = "resImg"
-	dataImg.style.height = window.innerHeight - 4 + "px"
+	dataImg.style.width = window.innerHeight - 2 + "px"
 	dataImg.style.borderRadius = window.innerHeight / 440 * 10 + "px"
-	dataImg.style.height = document.body.clientHeight
-	dataImg.style.rotate = "180deg"
 	document.body.appendChild(dataImg)
 	document.getElementById("app").style.display = "none"
-	document.getElementById("canvas").style.display = "none"
 	document.body.style.backgroundColor = "black"
 
 	dataImg.addEventListener("click", function () {
