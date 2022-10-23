@@ -22,6 +22,7 @@ let canvas = document.getElementById("canvas")
 let cache = new Cache()
 
 window.onload = () => {
+    document.body.style.maxWidth=innerWidth
 	cache.renderCache()
 	renderVersion()
 }
