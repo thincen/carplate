@@ -1,6 +1,8 @@
 # Carplate
 
 根据 `GA36-2018` 生成小区门禁已登记车牌, 识别手机屏幕开闸
+![preview](https://s3.bmp.ovh/imgs/2022/10/25/79d81f5ff9737069.gif)
+
 
 ## 开发测试
 
