@@ -37,10 +37,11 @@ class Cache {
 <div class="help">
 <p>Carplate</p>
 感谢 <a href="https://github.com/thincen/carplate"><u>longwosion/carplate</u></a> 分享<br>
-根据GA36-2018模仿小区门禁已登记车牌, 识别开闸进入小区
+根据 <code>GA36-2018</code> 生成小区门禁已登记车牌, 借用手机测试车牌识别<br> 
+<strong>本项目仅用于学习研究使用, 请遵守相关法律法规, 将本项目的任何内容用于商业或非法目的, 后果作者概不负责。</strong>
 <ul>
 <p>初次使用</p>
-<li>当前仅支持蓝牌小汽车车牌生成<br><strong style="color:red;">⚠️关闭手机自动旋转;调节屏幕亮度能够帮助识别</strong></li>
+<li><strong style="color:red;">⚠️关闭手机自动旋转;调节屏幕亮度能够帮助识别</strong></li>
 <li>离线使用: <br>弹出可离线使用提示后添加到手机主屏幕</li>
 <li>缓存车牌: <br>将车牌信息保存到本机</li>
 <li>加载缓存: <br>车牌列表加载完成后, 点击对应车牌显示图片</li>
