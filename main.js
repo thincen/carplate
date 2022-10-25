@@ -84,9 +84,11 @@ document.querySelector(".submit").addEventListener("click", (e) => {
 		}
 	}
 	draw(s, t)
+	let width = t=="greenBlack"?480:440
+
 	canvas.style.margintop= "1rem"
 	canvas.style.maxWidth=window.innerWidth+"px"
-	canvas.style.maxHeight=window.innerWidth/440*140+"px"
+	canvas.style.maxHeight=window.innerWidth/width*140+"px"
 	window.scrollTo(0, document.documentElement.clientHeight)
 })
 

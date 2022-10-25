@@ -1,7 +1,7 @@
 // draw.js
 
-let d = window.devicePixelRatio>2||3; // 缩放比例
-d*=2
+let d = window.devicePixelRatio < 2 || 3; // 缩放比例
+d *= 2
 let r = 10; // 内框线圆角 10mm
 
 // 最外层边框 普通蓝牌为 w=440 h=140 r=10+1.5 border-width=1.5
@@ -17,7 +17,7 @@ export function draw(carplate, opt) {
     fontColor = "white"; // 字体颜色 
   let w = 440, // 车牌宽 440mm 480mm-新能源绿牌
     h = 140; // 车牌高 140mm
-  if (opt.toLowerCase() === "green") {
+  if (opt.toLowerCase() === "greenblack") {
     w = 480
   }
   canvas.width = w * d; // 放大像素
@@ -25,11 +25,17 @@ export function draw(carplate, opt) {
   const ctx = canvas.getContext("2d")
   ctx.scale(d, d)
 
+  if (opt.toLowerCase() === "greenblack") {
+    drawEVCar(ctx, carplate)
+    canvas.style.display = "block"
+    return
+  }
+  // blueWhite
   border(ctx, w, h, r, backgroundColor)
   hole(ctx, h)
 
   province(ctx, carplate)
-  canvas.style.display="block"
+  canvas.style.display = "block"
 }
 
 /**
@@ -38,7 +44,7 @@ export function draw(carplate, opt) {
  */
 function province(ctx, s) {
   const p = "京津冀晋蒙辽吉黑沪苏浙皖闽赣鲁豫鄂湘粤桂琼渝川贵云藏陕甘青宁新港澳使领学警";
-let index=p.indexOf(s[0])
+  let index = p.indexOf(s[0])
   let row = 0, col = 0
   for (row; row < 4; row++) {
     if (index < (row + 1) * 9) {
@@ -49,7 +55,7 @@ let index=p.indexOf(s[0])
 
   let img = new Image()
   img.onload = function () {
-    // png内文字宽90,高180
+    // png内文字宽90,高180,x=15,y=25
     ctx.drawImage(img, 90 * col, 180 * row, 90, 180, 15, 25, 45, 90);
     letters(ctx, s)
   }
@@ -154,4 +160,57 @@ function roundedRect(ctx, x, y, width, height, radius) {
   ctx.lineTo(x + radius, y);
   ctx.quadraticCurveTo(x, y, x, y + radius);
   // ctx.stroke();
+}
+
+function drawEVCar(ctx, s) {
+  // 背景框
+  let bgimg = new Image()
+  bgimg.onload = function () {
+    ctx.drawImage(bgimg, 0, 0, 1695, 498, 0, 0, 480, 140)
+    let img = new Image()
+    img.onload = function () {
+      evword(ctx, s, img)
+      evletters(ctx, s, img)
+    }
+    img.src = "img/green.png"
+  }
+  bgimg.src = "img/evbg.png" // 1695*498
+}
+function evword(ctx, s, img) {
+  const p = "京津冀晋蒙辽吉黑沪苏浙皖闽赣鲁豫鄂湘粤桂琼渝川贵云藏陕甘青宁新";
+  let index = p.indexOf(s[0])
+  let row = 4, col = 0
+  // 第5行起 7行止
+  for (row; row < 8; row++) {
+    if (index < (row - 4 + 1) * 9) {
+      col = index - (row - 4) * 9
+      break
+    }
+  }
+  ctx.drawImage(img, 45 * col, 90 * row, 45, 90, 15.5, 25, 45, 90);
+}
+function evletters(ctx, s, img) {
+  // 字母和数字
+  let letters = "0123456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+  for (let i = 1; i < s.length; i++) {
+    let index = letters.indexOf(s[i])
+    let row = 0, col = 0;
+    // A-Z
+    if (s[i].charCodeAt() >= 65 && s[i].charCodeAt() <= 90) {
+      for (row=1; row < 4; row++) {
+        if (index < (row + 1) * 10) {
+          col = index - row * 10
+          break
+        }
+      }
+    }else{
+      col=index
+    }
+    if (i == 1) {
+      ctx.drawImage(img, 43 * col, 90 * row, 43, 90, 15.5 + 45 + 9, 25, 43, 90);
+    }
+    if (i > 1) {
+      ctx.drawImage(img, 43 * col, 90 * row, 43, 90, 161.5 + (i - 2) * (9 + 43), 25, 43, 90)
+    }
+  }
 }
