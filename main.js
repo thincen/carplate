@@ -1,6 +1,6 @@
 import './style.css'
 import version from '/version.info?raw'
-import logs from '/changelog.md?raw'
+import logs from '/CHANGELOG.md?raw'
 
 import { registerSW } from 'virtual:pwa-register'
 

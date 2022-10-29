@@ -6,7 +6,7 @@ export default defineConfig({
          host: "0.0.0.0",
      },
     base: "/carplate/",
-    assetsInclude: ["/changelog.md","/version.info"],
+    assetsInclude: ["/CHANGELOG.md","/version.info"],
     plugins: [
       VitePWA({
         registerType: "autoUpdate",

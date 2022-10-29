@@ -8,6 +8,14 @@
   --color-bg-main: rgba(162, 155, 254, 0.2);
   --color-tip-light: #dfe6e9;
   --color-tip-dark: rgba(52, 31, 151, 0.5);
+
+  --color-bg-dark: #22272e;
+  --color-font-dark: #adbac7;
+  --color-font-dark2: #768390;
+  --color-bg-btn-dark: #373e47;
+  --color-bg-list-dark-heighlight: #316dca;
+  --color-border-dark: #444c56;
+  color-scheme: light dark;
 }
 
 * {
@@ -17,7 +25,9 @@
   font-size: 1rem;
   color: var(--color-main-dark);
 }
-
+body{
+  height: 100vh;
+}
 /*a {
   text-decoration: none;
 }*/
@@ -36,6 +46,10 @@ input {
 /* 去除 label 点击闪烁 */
 label {
   -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* defalut end */
@@ -61,11 +75,12 @@ header>h1 {
 #version,
 #version a {
   font-size: 0.8rem;
-  color: var(--color-tip-dark);
+  /* color: var(--color-tip-dark); */
   text-align: center;
 }
-#version{
-  margin-bottom:0.5rem;
+
+#version {
+  margin-bottom: 0.5rem;
 }
 
 fieldset {
@@ -99,7 +114,7 @@ fieldset .row select {
 .checkbox {
   width: 4rem;
   height: 1.8rem;
-  border: 1px solid var(--color-main-dark);
+  /* border: 1px solid var(--color-main-dark); */
   display: inline-block;
   border-radius: 3.6rem;
   background-color: var(--color-main);
@@ -108,8 +123,8 @@ fieldset .row select {
 }
 
 
-#checkboxlabel{
-line-height:1.8rem;
+#checkboxlabel {
+  line-height: 1.8rem;
 }
 
 #cacheCheckbox+div {
@@ -159,7 +174,7 @@ input:focus {
 
 select {
   border-radius: 0.5rem;
-  color: var(--color-main-dark);
+  /* color: var(--color-main-dark); */
   background-color: var(--color-bg-main);
 }
 
@@ -195,8 +210,9 @@ section {
 
 
 .btn-danger {
-  background-color: var(--color-bg-danger);
-  border: 1px solid var(--color-border-danger);
+  /* background-color: var(--color-bg-danger); */
+  /* border: 1px solid var(--color-border-danger); */
+  border-style: none;
   color: var(--color-danger);
   min-width: 3rem;
 }
@@ -206,14 +222,20 @@ section {
   color: white;
 }
 
-.tips,
-.tips * {
+#field-cache {
   color: var(--color-tip-dark);
-  font-size: 0.8rem;
-  text-align: center;
 }
 
-.help ,.changelog{
+.tips,
+.tips * {
+  /* color: var(--color-tip-dark); */
+  font-size: 0.8rem;
+  text-align: center;
+  color: inherit;
+}
+
+.help,
+.changelog {
   width: 80%;
   margin: 0 auto;
   text-align: left;
@@ -230,7 +252,7 @@ section {
 }
 
 .help ul li,
-.changelog ul li{
+.changelog ul li {
   list-style-type: disc;
   text-align: left;
   margin-left: 1rem;
@@ -238,6 +260,7 @@ section {
 
 #field-cache {
   padding: 0;
+  /* color: var(--color-tip-dark); */
 }
 
 #cacheCount {
@@ -253,12 +276,12 @@ section {
   border-radius: 0.5rem;
 }
 
-.list{
+.list {
   width: 100%;
   margin-top: 1rem;
 }
 
-.list li{
+.list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -266,24 +289,25 @@ section {
   padding: 0.5rem 5%;
 }
 
-.list li:nth-child(odd) {
-  background-color: var(--color-bg-main);
+.list li * {
+  background-color: initial;
 }
 
 .list li button {
   padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;
-  margin-left:1rem;
+  margin-left: 1rem;
 }
-.col2{
-flex-grow:1;
+
+.col2 {
+  flex-grow: 1;
 }
 
 .row2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: monospace,Courier;
+  font-family: monospace, Courier;
 }
 
 .cacheComment {
@@ -299,87 +323,154 @@ canvas {
 
 .resImg {
   box-sizing: content-box;
- /* margin: auto;
- */ display: block;
+  /* margin: auto;
+ */
+  display: block;
   position: absolute;
-  top:100%;
-  left:50%;
+  top: 100%;
+  left: 50%;
   box-shadow: 0 0 1px 1px white;
   transform-origin: top left;
   transform: rotate(-90deg) translateY(-50%);
 }
 
-#field-log{
+#field-log {
   visibility: hidden;
+  color: var(--color-tip-dark);
 }
-.close{
+
+.close {
   position: absolute;
   right: 10%;
   border: 1px solid var(--color-tip-dark);
   background-color: var(--color-bg-main);
   border-radius: 1rem;
   font-size: 0.8rem;
-  padding: 0.2rem 1rem;;
+  padding: 0.2rem 1rem;
   color: var(--color-main);
   animation: flash 2s infinite;
   -webkit-animation: flash 3s 3;
 }
-@keyframes flash{
-	0%{color: var(--color-main);
-  background-color: var(--color-bg-main);
-	
-}
-	60%{
-  background-color: var(--color-main);
-color: var(--color-tip-light);}
-	100%{color: var(--color-main);
-  background-color: var(--color-bg-main);
-}
+
+@keyframes flash {
+  0% {
+    color: var(--color-main);
+    background-color: var(--color-bg-main);
+
+  }
+
+  60% {
+    background-color: var(--color-main);
+    color: var(--color-tip-light);
+  }
+
+  100% {
+    color: var(--color-main);
+    background-color: var(--color-bg-main);
+  }
 }
 
-@-webkit-keyframes flash{
-	0%{color: var(--color-main);
-  background-color: var(--color-bg-main);
-	
-}
-	60%{
-  background-color: var(--color-main);
-color: var(--color-tip-light);}
-	100%{color: var(--color-main);
-  background-color: var(--color-bg-main);
-	
-}
+@-webkit-keyframes flash {
+  0% {
+    color: var(--color-main);
+    background-color: var(--color-bg-main);
+
+  }
+
+  60% {
+    background-color: var(--color-main);
+    color: var(--color-tip-light);
+  }
+
+  100% {
+    color: var(--color-main);
+    background-color: var(--color-bg-main);
+
+  }
 }
 
-.changelog,.changelog *{
-  color:var(--color-tip-dark);
+.changelog,
+.changelog * {
+  color: inherit;
   font-size: 0.8rem;
 }
 
-.changelog h1{
+.changelog h1 {
   font-size: 1.2rem;
   padding: 0 0 0.5rem 0;
 }
-.changelog h2{
+
+.changelog h2 {
   font-size: 1.0rem;
   padding: 0.3rem 0;
 }
-.changelog h3{
+
+.changelog h3 {
   font-size: 0.8rem;
   font-weight: bold;
   padding: 0.1rem 0;
 }
-.changelog li{
+
+#version,
+#version a,
+.tips,
+legend,
+#field-cache,
+#field-log {
+  color: var(--color-tip-dark);
 }
 
+fieldset,
+.list li:first-child {
+  border-top: 1px solid var(--color-tip-dark);
+}
+
+.list li:nth-child(odd) {
+  background-color: var(--color-bg-main);
+}
+
+.btn-danger {
+  color: var(--color-danger);
+}
+#removeAllCache{
+  border: 1px solid var(--color-border-danger);
+}
 
 @media screen and (max-width:800px) {
   #app {
     width: 100%;
   }
 }
-@media screen and (max-width:375px){
-	:root {
-		font-size:14px;
+
+@media screen and (max-width:375px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+	*{
+		color: var(--color-font-dark);
+		background-color: var(--color-bg-dark);
 	}
+	#version, #version a,.tips,legend,
+  #field-cache,#field-log{
+    color: var(--color-font-dark2);
+  }
+  fieldset,.list li:first-child{
+    border-top:1px solid var(--color-border-dark);
+  }
+  input,.list li{
+    border-bottom: 1px solid var(--color-border-dark);
+  }
+  .list li:nth-child(odd){
+    background-color: var(--color-bg-btn-dark);
+  }
+  .close,.btn-primiary:hover,select{
+    color: var(--color-font-dark);
+    border: 1px solid var(--color-border-dark);
+  }
+  .btn-danger{
+    color: var(--color-border-danger);
+  }
 }
