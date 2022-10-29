@@ -29,6 +29,10 @@ function getTxtByReg(tag,raw){
 		// delete blank line
 		let strs = mdraw.replace(/^\s+/gm, ``).split(`\n`)
 		for (let i = 0; i < strs.length; i++) {
+			let reg=/^\[#\d+\]:\shttps:.+$/
+			if (strs[i].match(reg)!=null){
+				strs[i]=""
+			}
 			// Features|Fixed
 			let h3=getTxtByReg("h3",strs[i])
 			if(h3!=""){
@@ -60,5 +64,14 @@ function getTxtByReg(tag,raw){
 			}
 		
 	}
-		return strs.join(``)+"</ul>"
+		let reg=/\((\[#\d+\])\)/gm
+		let idarray=strs.join("").match(reg)
+		let res=strs.join("")
+		idarray.forEach(id => {
+			let reg=/\d+/
+			let idnum=id.match(reg)[0]
+			res=res.replace("[#"+idnum+"]","<a href=https://github.com/thincen/carplate/issues/"+idnum+">#"+idnum+"</a>")
+		});
+		res=res+"</ul>"
+		return res
 	}

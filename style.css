@@ -15,7 +15,7 @@
   --color-bg-btn-dark: #373e47;
   --color-bg-list-dark-heighlight: #316dca;
   --color-border-dark: #444c56;
-  color-scheme: light dark;
+  /* color-scheme: light dark; */
 }
 
 * {
@@ -28,9 +28,10 @@
 body{
   height: 100vh;
 }
-/*a {
-  text-decoration: none;
-}*/
+a {
+  /* text-decoration: none; */
+  font-weight: bold;
+}
 
 ul {
   list-style: none;
@@ -75,7 +76,6 @@ header>h1 {
 #version,
 #version a {
   font-size: 0.8rem;
-  /* color: var(--color-tip-dark); */
   text-align: center;
 }
 
@@ -453,7 +453,7 @@ fieldset,
 		color: var(--color-font-dark);
 		background-color: var(--color-bg-dark);
 	}
-	#version, #version a,.tips,legend,
+	#version,#version a,.tips,legend,
   #field-cache,#field-log{
     color: var(--color-font-dark2);
   }
